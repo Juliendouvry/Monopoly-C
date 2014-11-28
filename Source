@@ -104,25 +104,25 @@ void main()
 	//Companhia de eletricidade 150
 
 	//Casa12
-	Propriedade[1].nome_casa = "Rua Ferreira Borges";
-	Propriedade[1].preço = 140;
-	Propriedade[1].hipoteca = 50;
-	Propriedade[1].localizaçao = "Coimbra";
-	//Propriedade[0].proprietario = ? ? ? ;
+	propriedades[12].nome_casa = "Rua Ferreira Borges";
+	proriedades[12].preço = 140;
+	propriedades[12].hipoteca = 50;
+	propriedades[12].localizaçao = "Coimbra";
+	//Propriedade[12].proprietario = ? ? ? ;
 
 	//Casa13
-	Propriedade[1].nome_casa = "Avenida de Roma";
-	Propriedade[1].preço = 160;
-	Propriedade[1].hipoteca = 50;
-	Propriedade[1].localizaçao = "Lisboa";
-	//Propriedade[0].proprietario = ? ? ? ;
+	propriedades[13].nome_casa = "Avenida de Roma";
+	propriedades[13].preço = 160;
+	propriedades[13].hipoteca = 50;
+	propriedades[13].localizaçao = "Lisboa";
+	//Propriedade[13].proprietario = ? ? ? ;
 
 	//Casa14
-	Propriedade[1].nome_casa = "Gare do Oriente";
-	Propriedade[1].preço = 200;
-	Propriedade[1].hipoteca = 50;
-	Propriedade[1].localizaçao = "Lisboa";
-	//Propriedade[0].proprietario = ? ? ? 
+	propriedades[14].nome_casa = "Gare do Oriente";
+	propriedades[14].preço = 200;
+	propriedades[14].hipoteca = 50;
+	propriedades[14].localizaçao = "Lisboa";
+	//propriedades[0].proprietario = ? ? ? 
 
 	//Casa15
 	Propriedade[1].nome_casa = "Avenida da Boavista";
