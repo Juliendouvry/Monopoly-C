@@ -8,11 +8,11 @@ typedef struct registoPropriedades
 	char nome[50];
 	int preço;
 	int hipoteca;
-	char proprietario[20];
 	char localizaçao[50];
+	char proprietario[20];
 } Propriedade;
 
-Propriedade propriedades[40];
+Propriedade propriedades[39];
 
 //Estrutura de dados para o registo de Jogadores
 typedef struct registoJogadores
@@ -23,6 +23,38 @@ typedef struct registoJogadores
 } Jogador;
 
 Jogador jogadores[8];
+
+//Lançamento dos dois dados
+int lançamentoDados()
+{
+	int dado1, dado2, total, contador = 0;
+
+	dado1 = (rand() % 6) + 1;
+	dado2 = (rand() % 6) + 1;
+	total = dado1 + dado2;
+	printf("Lançamento de Dados: %d + %d = %d casas.\n", dado1, dado2, total);
+
+	//Verificar se ocorreu um double
+	while (dado1 == dado2)
+	{
+		printf("DOUBLE!");
+		contador++;
+		if (contador == 3)
+		{
+			//CADEIA
+			break;
+		}
+		else
+		{
+			dado1 = (rand() % 6) + 1;
+			dado2 = (rand() % 6) + 1;
+			total = dado1 + dado2;
+			printf("Lançamento de Dados: %d + %d = %d casas.\n", dado1, dado2, total);
+		}
+	}
+
+	return(total);
+}
 
 //Calcula a nova posição do Jogador após o Lançamento dos Dados
 int novaPosicao(int posActual, int lancamentoDados)
@@ -38,6 +70,22 @@ int novaPosicao(int posActual, int lancamentoDados)
 	else return novapos;
 }
 
+//Cadeia
+bool cadeia()
+{
+	int dado1, dado2, total;
+
+	dado1 = (rand() % 6) + 1;
+	dado2 = (rand() % 6) + 1;
+	total = dado1 + dado2;
+	if (dado1 == dado2)
+	{
+		printf("Saiu da cadeia!");
+		return false;
+	}
+	else return true;
+		
+}
 
 void main()
 {
@@ -100,165 +148,155 @@ void main()
 	strcpy(propriedades[10].localizaçao, "Braga");
 	strcpy(propriedades[10].proprietario, "");
 
-	//Casa11
-	//Companhia de eletricidade 150
+	//Casa 11 - Companhia de eletricidade 150
 
-	//Casa12
-	propriedades[12].nome_casa = "Rua Ferreira Borges";
-	proriedades[12].preço = 140;
+	//Casa 12
+	strcpy(propriedades[12].nome, "Rua Ferreira Borges");
+	propriedades[12].preço = 140;
 	propriedades[12].hipoteca = 50;
-	propriedades[12].localizaçao = "Coimbra";
-	//Propriedade[12].proprietario = ? ? ? ;
+	strcpy(propriedades[12].localizaçao, "Coimbra");
+	strcpy(propriedades[12].proprietario, "");
 
-	//Casa13
-	propriedades[13].nome_casa = "Avenida de Roma";
+	//Casa 13
+	strcpy(propriedades[13].nome, "Avenida de Roma");
 	propriedades[13].preço = 160;
 	propriedades[13].hipoteca = 50;
-	propriedades[13].localizaçao = "Lisboa";
-	//Propriedade[13].proprietario = ? ? ? ;
+	strcpy(propriedades[13].localizaçao, "Lisboa");
+	strcpy(propriedades[13].proprietario, "");
 
-	//Casa14
-	propriedades[14].nome_casa = "Gare do Oriente";
+	//Casa 14
+	strcpy(propriedades[14].nome, "Gare do Oriente");
 	propriedades[14].preço = 200;
 	propriedades[14].hipoteca = 50;
-	propriedades[14].localizaçao = "Lisboa";
-	//propriedades[0].proprietario = ? ? ? 
+	strcpy(propriedades[14].localizaçao, "Lisboa");
+	strcpy(propriedades[14].proprietario, "");
 
-	//Casa15
-	Propriedade[1].nome_casa = "Avenida da Boavista";
-	Propriedade[1].preço = 180;
-	Propriedade[1].hipoteca = 50;
-	Propriedade[1].localizaçao = "Porto";
-	//Propriedade[0].proprietario = ? ? ? ;
+	//Casa 15
+	strcpy(propriedades[15].nome, "Avenida da Boavista");
+	propriedades[15].preço = 180;
+	propriedades[15].hipoteca = 50;
+	strcpy(propriedades[15].localizaçao, "Porto");
+	strcpy(propriedades[15].proprietario, "");
 	
-	//Casa16
-	//Caixa da Comunidade
+	//Casa 16 - Caixa da Comunidade
 
-	//Casa17
-	Propriedade[1].nome_casa = "Avenida da Republica";
-	Propriedade[1].preço = 180;
-	Propriedade[1].hipoteca = 50;
-	Propriedade[1].localizaçao = "Lisboa";
-	//Propriedade[0].proprietario = ? ? ? ;
+	//Casa 17
+	strcpy(propriedades[17].nome, "Avenida da República");
+	propriedades[17].preço = 180;
+	propriedades[17].hipoteca = 50;
+	strcpy(propriedades[17].localizaçao, "Lisboa");
+	strcpy(propriedades[17].proprietario, "");
 
-	//Casa18
-	Propriedade[1].nome_casa = "Rua Mouzinho da Silveira";
-	Propriedade[1].preço = 200;
-	Propriedade[1].hipoteca = 50;
-	Propriedade[1].localizaçao = "Porto";
-	//Propriedade[0].proprietario = ? ? ? ;
+	//Casa 18
+	strcpy(propriedades[18].nome, "Rua Mouzinho da Silveira");
+	propriedades[18].preço = 200;
+	propriedades[18].hipoteca = 50;
+	strcpy(propriedades[18].localizaçao, "Porto");
+	strcpy(propriedades[18].proprietario, "");
 
-	//Casa19
-	// Estacionamento Livre
+	//Casa 19 - Estacionamento Livre
 
-	//Casa20
-	Propriedade[1].nome_casa = "Rua de Santa Catarina";
-	Propriedade[1].preço = 220;
-	Propriedade[1].hipoteca = 50;
-	Propriedade[1].localizaçao = "Porto";
-	//Propriedade[0].proprietario = ? ? ? ;
+	//Casa 20
+	strcpy(propriedades[20].nome, "Rua de Santa Catarina");
+	propriedades[20].preço = 220;
+	propriedades[20].hipoteca = 50;
+	strcpy(propriedades[20].localizaçao, "Porto");
+	strcpy(propriedades[20].proprietario, "");
 
-	//Casa21
-	//Sorte
+	//Casa 21 - Sorte
 
-	//Casa22
-	Propriedade[1].nome_casa = "Avenida Infante Santo";
-	Propriedade[1].preço = 220;
-	Propriedade[1].hipoteca = 50;
-	Propriedade[1].localizaçao = "Lisboa";
-	//Propriedade[0].proprietario = ? ? ? ;
+	//Casa 22
+	strcpy(propriedades[22].nome, "Avenida Infante Santo");
+	propriedades[22].preço = 220;
+	propriedades[22].hipoteca = 50;
+	strcpy(propriedades[22].localizaçao, "Lisboa");
+	strcpy(propriedades[22].proprietario, "");
 
-	//Casa23
-	Propriedade[1].nome_casa = "Rua Julio Diniz";
-	Propriedade[1].preço = 240;
-	Propriedade[1].hipoteca = 50;
-	Propriedade[1].localizaçao = "Porto";
-	//Propriedade[0].proprietario = ? ? ? ;
+	//Casa 23
+	strcpy(propriedades[23].nome, "Rua Julio Diniz");
+	propriedades[23].preço = 240;
+	propriedades[23].hipoteca = 50;
+	strcpy(propriedades[23].localizaçao, "Porto");
+	strcpy(propriedades[23].proprietario, "");
 
-	//Casa24
-	Propriedade[1].nome_casa = "Estação de S. Bento";
-	Propriedade[1].preço = 200;
-	Propriedade[1].hipoteca = 50;
-	Propriedade[1].localizaçao = "Porto";
-	//Propriedade[0].proprietario = ? ? ? ;
+	//Casa 24
+	strcpy(propriedades[24].nome, "Estação de S. Bento");
+	propriedades[24].preço = 200;
+	propriedades[24].hipoteca = 50;
+	strcpy(propriedades[24].localizaçao, "Porto");
+	strcpy(propriedades[24].proprietario, "");
 
-	//Casa25
-	Propriedade[1].nome_casa = "Praça da Republica";
-	Propriedade[1].preço = 260;
-	Propriedade[1].hipoteca = 50;
-	Propriedade[1].localizaçao = "Porto";
-	//Propriedade[0].proprietario = ? ? ? ;
+	//Casa 25
+	strcpy(propriedades[25].nome, "Praça da Republica");
+	propriedades[25].preço = 260;
+	propriedades[25].hipoteca = 50;
+	strcpy(propriedades[25].localizaçao, "Porto");
+	strcpy(propriedades[25].proprietario, "");
 
-	//Casa26
-	Propriedade[1].nome_casa = "Avenida Fontes Pereira de Melo";
-	Propriedade[1].preço = 260;
-	Propriedade[1].hipoteca = 50;
-	Propriedade[1].localizaçao = "Lisboa";
-	//Propriedade[0].proprietario = ? ? ? ;
+	//Casa 26
+	strcpy(propriedades[26].nome, "Avenida Fontes Pereira de Melo");
+	propriedades[26].preço = 260;
+	propriedades[26].hipoteca = 50;
+	strcpy(propriedades[26].localizaçao, "Lisboa");
+	strcpy(propriedades[26].proprietario, "");
 
-	//Casa27
-	//Companhia das Águas
+	//Casa 27 - Companhia das Águas
 
-	//Casa28
-	Propriedade[1].nome_casa = "Rotunda da Boavista";
-	Propriedade[1].preço = 280;
-	Propriedade[1].hipoteca = 50;
-	Propriedade[1].localizaçao = "Porto";
-	//Propriedade[0].proprietario = ? ? ? ;
+	//Casa 28
+	strcpy(propriedades[28].nome, "Rotunda da Boavista");
+	propriedades[28].preço = 280;
+	propriedades[28].hipoteca = 50;
+	strcpy(propriedades[28].localizaçao, "Porto");
+	strcpy(propriedades[28].proprietario, "");
 
-	//Casa29
-	//Va para a cadeia
 
-	//Casa30
-	Propriedade[1].nome_casa = "Avenida da Liberdade";
-	Propriedade[1].preço = 300;
-	Propriedade[1].hipoteca = 50;
-	Propriedade[1].localizaçao = "Lisboa";
-	//Propriedade[0].proprietario = ? ? ? ;
+	//Casa 29 - Vá para a cadeia
 
-	//Casa31
-	Propriedade[1].nome_casa = "Rua dos Clerigos";
-	Propriedade[1].preço = 300;
-	Propriedade[1].hipoteca = 50;
-	Propriedade[1].localizaçao = "Porto";
-	//Propriedade[0].proprietario = ? ? ? ;
+	//Casa 30
+	strcpy(propriedades[30].nome, "Avenida da Liberdade");
+	propriedades[30].preço = 300;
+	propriedades[30].hipoteca = 50;
+	strcpy(propriedades[30].localizaçao, "Lisboa");
+	strcpy(propriedades[30].proprietario, "");
 
-	//Casa32
-	//Caixa da comunidade
+	//Casa 31
+	strcpy(propriedades[31].nome, "Rua dos Clerigos");
+	propriedades[31].preço = 300;
+	propriedades[31].hipoteca = 50;
+	strcpy(propriedades[31].localizaçao, "Porto");
+	strcpy(propriedades[31].proprietario, "");
 
-	//Casa33
-	Propriedade[1].nome_casa = "Avenida do Parque das Nações";
-	Propriedade[1].preço = 320;
-	Propriedade[1].hipoteca = 50;
-	Propriedade[1].localizaçao = "Lisboa";
-	//Propriedade[0].proprietario = ? ? ? ;
+	//Casa 32 - Caixa da comunidade
 
-	//Casa34
-	Propriedade[1].nome_casa = "Estação de Santa Apolonia";
-	Propriedade[1].preço = 200;
-	Propriedade[1].hipoteca = 50;
-	Propriedade[1].localizaçao = "Lisboa";
-	//Propriedade[0].proprietario = ? ? ? ;
+	//Casa 33
+	strcpy(propriedades[33].nome, "Avenida do Parque das Nações");
+	propriedades[33].preço = 320;
+	propriedades[33].hipoteca = 50;
+	strcpy(propriedades[33].localizaçao, "Lisboa");
+	strcpy(propriedades[33].proprietario, "");
 
-	//Casa35
-	//Sorte
+	//Casa 34
+	strcpy(propriedades[34].nome, "Estação de Santa Apolonia");
+	propriedades[34].preço = 200;
+	propriedades[34].hipoteca = 50;
+	strcpy(propriedades[34].localizaçao, "Lisboa");
+	strcpy(propriedades[34].proprietario, "");
 
-	//Casa36
-	Propriedade[1].nome_casa = "Rua das Amoreiras";
-	Propriedade[1].preço = 200;
-	Propriedade[1].hipoteca = 50;
-	Propriedade[1].localizaçao = "Lisboa";
-	//Propriedade[0].proprietario = ? ? ? ;
+	//Casa 35 - Sorte
 
-	//Casa37
-	//Imposto de Luxo
+	//Casa 36
+	strcpy(propriedades[36].nome, "Rua das Amoreiras");
+	propriedades[36].preço = 200;
+	propriedades[36].hipoteca = 50;
+	strcpy(propriedades[36].localizaçao, "Lisboa");
+	strcpy(propriedades[36].proprietario, "");
+
+	//Casa 37 - Imposto de Luxo
 
 	//Casa38
-	Propriedade[1].nome_casa = "Rossio";
-	Propriedade[1].preço = 400;
-	Propriedade[1].hipoteca = 50;
-	Propriedade[1].localizaçao = "Lisboa";
-	//Propriedade[0].proprietario = ? ? ? ;
-
-	//39 PARTIDA
+	strcpy(propriedades[38].nome, "Rossio");
+	propriedades[38].preço = 400;
+	propriedades[38].hipoteca = 50;
+	strcpy(propriedades[38].localizaçao, "Lisboa");
+	strcpy(propriedades[38].proprietario, "");
 }
