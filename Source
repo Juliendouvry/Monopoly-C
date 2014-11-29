@@ -1,3 +1,7 @@
+/*
+Copyright 2014-2015, Gil Ferraz e Teresa Loureiro
+*/
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -24,6 +28,23 @@ typedef struct registoJogadores
 
 Jogador jogadores[8];
 
+//Cadeia
+bool cadeia()
+{
+	printf("Necessita de fazer um double para sair da cadeia.");
+	int dado1, dado2, total;
+
+	dado1 = (rand() % 6) + 1;
+	dado2 = (rand() % 6) + 1;
+	total = dado1 + dado2;
+	if (dado1 == dado2)
+	{
+		printf("Saiu da cadeia!");
+		return false;
+	}
+	else return true;
+}
+
 //Lançamento dos dois dados
 int lançamentoDados()
 {
@@ -37,11 +58,13 @@ int lançamentoDados()
 	//Verificar se ocorreu um double
 	while (dado1 == dado2)
 	{
-		printf("DOUBLE!");
+		printf("DOUBLE!\n\n");
 		contador++;
 		if (contador == 3)
 		{
-			//CADEIA
+			//Vai cadeia se tiver 3 doubles seguidos
+			printf("Obteve 3 doubles seguidos, vai para a cadeia.\n");
+			cadeia();
 			break;
 		}
 		else
@@ -52,43 +75,68 @@ int lançamentoDados()
 			printf("Lançamento de Dados: %d + %d = %d casas.\n", dado1, dado2, total);
 		}
 	}
-
 	return(total);
+}
+
+//Seleção de Jogoadoes
+void seleçãoJogadores()
+{
+	int nJogadores;
+
+	printf("Qual e o numero de jogadores (2 a 8): ");
+	scanf_s("%d", &nJogadores);
+	printf("\n");
+
+	while ((nJogadores < 2) || (nJogadores > 8))
+	{
+		printf("ERRO! Dados invalidos.\n");
+		printf("Qual e o numero de jogadores (2 a 8): ");
+		scanf_s("%d", &nJogadores);
+	}
+
+	for (int i = 0; i > nJogadores; i++)
+	{
+		printf("Qual e o nome do jogador %d: ", i);
+		scanf_s("%d", jogadores[i].nome);
+		jogadores[i].saldo = 0;
+		jogadores[i].posicao = 0;
+	}
 }
 
 //Calcula a nova posição do Jogador após o Lançamento dos Dados
 int novaPosicao(int posActual, int lancamentoDados)
 {
-	int novapos = posActual + lancamentoDados;
+	int novaPos = posActual + lancamentoDados;
 
-	if (novapos == 40)
+	if (novaPos == 40)
 	{
-		novapos = 0;
-		return (novapos);
+		novaPos = 0;
+		return (novaPos);
 	}
-	else if (novapos > 40) return(novapos - 40);
-	else return novapos;
+	else if (novaPos > 40) return(novaPos - 40);
+	else return novaPos;
 }
 
-//Cadeia
-bool cadeia()
-{
-	int dado1, dado2, total;
+//Contador universal de turnos
+int turno = 0;
 
-	dado1 = (rand() % 6) + 1;
-	dado2 = (rand() % 6) + 1;
-	total = dado1 + dado2;
-	if (dado1 == dado2)
+//Executa as ações possíveis por turno
+void novoTurno() 
+{ //INCOMPLETO
+	turno++;
+	printf("\n== Turno %d ==\n", turno);
+
+	for each (Jogador a in jogadores)
 	{
-		printf("Saiu da cadeia!");
-		return false;
+		if (jogadores[a].posição == 0) jogadores[a].saldo += 200;
 	}
-	else return true;
-		
-}
+	lançamentoDados();
+
+} //INCOMPLETO
 
 void main()
 {
+	//Definição de Casas e Propriedades
 	//Casa 0 - Partida
 
 
@@ -125,6 +173,7 @@ void main()
 	
 	//Casa 6 - Sorte
 
+
 	//Casa 7
 	strcpy(propriedades[7].nome, "Avenida das Nações Unidas");
 	propriedades[7].preço = 100;
@@ -140,6 +189,11 @@ void main()
 	strcpy(propriedades[8].proprietario, "");
 
 	//Casa 9 - Cadeia
+	strcpy(propriedades[8].nome, "Cadeia");
+	propriedades[8].preço = 0;
+	propriedades[8].hipoteca = 0;
+	strcpy(propriedades[8].localizaçao, "");
+	strcpy(propriedades[8].proprietario, "Interdito");
 
 	//Casa 10
 	strcpy(propriedades[10].nome, "Avenida Central");
@@ -149,6 +203,7 @@ void main()
 	strcpy(propriedades[10].proprietario, "");
 
 	//Casa 11 - Companhia de eletricidade 150
+
 
 	//Casa 12
 	strcpy(propriedades[12].nome, "Rua Ferreira Borges");
@@ -180,6 +235,7 @@ void main()
 	
 	//Casa 16 - Caixa da Comunidade
 
+
 	//Casa 17
 	strcpy(propriedades[17].nome, "Avenida da República");
 	propriedades[17].preço = 180;
@@ -196,6 +252,7 @@ void main()
 
 	//Casa 19 - Estacionamento Livre
 
+
 	//Casa 20
 	strcpy(propriedades[20].nome, "Rua de Santa Catarina");
 	propriedades[20].preço = 220;
@@ -204,6 +261,7 @@ void main()
 	strcpy(propriedades[20].proprietario, "");
 
 	//Casa 21 - Sorte
+
 
 	//Casa 22
 	strcpy(propriedades[22].nome, "Avenida Infante Santo");
@@ -242,6 +300,7 @@ void main()
 
 	//Casa 27 - Companhia das Águas
 
+
 	//Casa 28
 	strcpy(propriedades[28].nome, "Rotunda da Boavista");
 	propriedades[28].preço = 280;
@@ -251,6 +310,7 @@ void main()
 
 
 	//Casa 29 - Vá para a cadeia
+
 
 	//Casa 30
 	strcpy(propriedades[30].nome, "Avenida da Liberdade");
@@ -268,6 +328,7 @@ void main()
 
 	//Casa 32 - Caixa da comunidade
 
+
 	//Casa 33
 	strcpy(propriedades[33].nome, "Avenida do Parque das Nações");
 	propriedades[33].preço = 320;
@@ -284,6 +345,7 @@ void main()
 
 	//Casa 35 - Sorte
 
+
 	//Casa 36
 	strcpy(propriedades[36].nome, "Rua das Amoreiras");
 	propriedades[36].preço = 200;
@@ -293,10 +355,26 @@ void main()
 
 	//Casa 37 - Imposto de Luxo
 
+
 	//Casa38
 	strcpy(propriedades[38].nome, "Rossio");
 	propriedades[38].preço = 400;
 	propriedades[38].hipoteca = 50;
 	strcpy(propriedades[38].localizaçao, "Lisboa");
 	strcpy(propriedades[38].proprietario, "");
+
+	//Início do Jogo
+	printf("= MONOPOLIO =\n");
+	printf("Bem-vindo ao Monopolio para a Consola do Windows.\n");
+	printf("Este jogo foi codificado em liguagem C no ambito da disciplina de\n");
+	printf("Algoritmos e Estrutura de Dados, lecionada pelo professor Jose Carlos,\n");
+	printf("UC da Licenciatura de Engenharia em Desenvolvimento de Jogos Digitais.\n");
+	printf("\nAutores: Gil Ferraz (10660) e Teresa Loureiro (10661)\n");
+
+	printf("\n== Jogadores ==\n");
+	seleçãoJogadores();
+
+	turno();
+	
+	system("pause");
 }
