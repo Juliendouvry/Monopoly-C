@@ -5,6 +5,7 @@ Copyright 2014-2015, Gil Ferraz e Teresa Loureiro
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include <time.h>
 
 //Estrutura de dados para o registo de Propriedades
 typedef struct registoPropriedades
