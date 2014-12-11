@@ -412,8 +412,9 @@ void main()
 			switch(jogadores[i].posição)
 			{
 				case 's':
-				popSorte();
-				
+					popSorte();
+					break;
+			}
 
 				
 			
