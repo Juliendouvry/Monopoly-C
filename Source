@@ -1,4 +1,4 @@
-/*
+
 Copyright 2014-2015, Gil Ferraz e Teresa Loureiro
 */
 
@@ -394,7 +394,7 @@ void main()
 			//Escolha de opção
 			int opção = 0;
 
-			printf("\nO que que deseja fazer?\n");
+			printf("\nO que deseja fazer?\n");
 			printf("1 - Lancar os dados\n");
 			if (strcmp(propriedades[jogadores[i].posição].proprietario, "Sem Proprietario") == 0)
 				printf("2 - Comprar propriedade\n");
@@ -409,15 +409,6 @@ void main()
 			int antigaPosição = jogadores[i].posição;
 			
 			jogadores[i].posição = novaPosicao(jogadores[i].posição, lançamentoDados());
-			switch(jogadores[i].posição)
-			{
-				case 's':
-					popSorte();
-					break;
-			}
-
-				
-			
 			printf("\n== Movimentos ==\n");
 			printf(" * Posicao = Casa %d - %s\n", jogadores[i].posição, propriedades[jogadores[i].posição].nome);
 
@@ -427,6 +418,33 @@ void main()
 			printf(" * Hipoteca: %d\n", propriedades[jogadores[i].posição].hipoteca);
 			printf(" * Localizacao: %s\n", propriedades[jogadores[i].posição].localizaçao);
 
+			//Escolha de opção
+			opção = 0;
+
+			printf("\nO que deseja fazer?\n");
+			if (strcmp(propriedades[jogadores[i].posição].proprietario, "Sem Proprietario") == 0)
+				printf("2 - Comprar propriedade\n");
+
+			if (propriedades[jogadores[i].posição].proprietario == jogadores[i].nome)
+			{
+				printf("3 - Construir casa\n");
+				printf("4 - Construir hotel\n");
+			}
+			printf("0 - Terminar turno\n");
+			scanf_s("%d", &opção);
+
+			//Comprar propriedade
+			if (opção = 2)
+			{
+				if (jogadores[i].saldo >= propriedades[jogadores[i].posição].preço)
+				{
+					jogadores[i].saldo -= propriedades[jogadores[i].posição].preço;
+					strcpy(propriedades[jogadores[i].posição].proprietario, jogadores[i].nome);
+
+					printf("\nAquisicao completa!\n");
+					printf("%s foi adiquirida por %s.\n", propriedades[jogadores[i].posição].nome, jogadores[i].nome);
+				}
+			}
 
 			//Verficar se o jogador se encontra ou passou pela Casa de Partida
 			if ((jogadores[i].posição == 0) || (jogadores[i].posição < antigaPosição))
