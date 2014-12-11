@@ -409,6 +409,14 @@ void main()
 			int antigaPosição = jogadores[i].posição;
 			
 			jogadores[i].posição = novaPosicao(jogadores[i].posição, lançamentoDados());
+			switch(jogadores[i].posição)
+			{
+				case 's':
+				popSorte();
+				
+
+				
+			
 			printf("\n== Movimentos ==\n");
 			printf(" * Posicao = Casa %d - %s\n", jogadores[i].posição, propriedades[jogadores[i].posição].nome);
 
