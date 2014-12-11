@@ -48,7 +48,6 @@ bool cadeia()
 //Lançamento de dois dados
 int lançamentoDados()
 {
-	int contador = 0;
 	int dado1 = (rand() % 6) + 1;
 	int dado2 = (rand() % 6) + 1;
 	int total1 = dado1 + dado2;
@@ -56,7 +55,10 @@ int lançamentoDados()
 	printf(" * Primeiro Lancamento: %d + %d = %d casas\n", dado1, dado2, total1);
 
 	if (dado1 != dado2)
+	{
+		printf("\nAvance %d casas.\n", total1);
 		return (total1);
+	}
 	else
 	{
 		printf(" DOUBLE!\n\n");
@@ -66,7 +68,10 @@ int lançamentoDados()
 		printf(" * Segundo Lancamento: %d + %d = %d casas\n", dado1, dado2, total2);
 
 		if (dado1 != dado2)
+		{
+			printf("\nAvance %d casas.\n", total1 + total2);
 			return (total1 + total2);
+		}
 		else
 		{
 			printf(" DOUBLE!\n\n");
@@ -76,7 +81,10 @@ int lançamentoDados()
 			printf(" * Terceiro Lancamento: %d + %d = %d casas\n", dado1, dado2, total3);
 
 			if (dado1 != dado2)
+			{
+				printf("\nAvance %d casas.\n", total1 + total2 + total3);
 				return (total1 + total2 + total3);
+			}
 			else
 			{
 				printf("Obteve 3 DOUBLES consecutivos. Vai para a cadeia!\n");
@@ -101,16 +109,14 @@ int seleçãoJogadores()
 		printf("Qual e o numero de jogadores (2 a 8): ");
 		scanf_s("%d", &nJogadores);
 	}
-
+	getchar();
 	for (int i = 0; i < nJogadores; i++)
 	{
 		printf("Qual e o nome do jogador %d: ", i + 1);
-		fflush(stdout);
 		/*scanf_s("%c", jogadores[i].nome)*/
 		gets_s(jogadores[i].nome, 50);
 		jogadores[i].saldo = 1500;
 		jogadores[i].posição = 0;
-		printf("\n");
 	}
 	return (nJogadores);
 }
@@ -405,6 +411,13 @@ void main()
 			jogadores[i].posição = novaPosicao(jogadores[i].posição, lançamentoDados());
 			printf("\n== Movimentos ==\n");
 			printf(" * Posicao = Casa %d - %s\n", jogadores[i].posição, propriedades[jogadores[i].posição].nome);
+
+			//Detalhes da casa em que o jogador se encontra
+			printf("\n== %s ==\n", propriedades[jogadores[i].posição].nome);
+			printf(" * Preco: %d\n", propriedades[jogadores[i].posição].preço);
+			printf(" * Hipoteca: %d\n", propriedades[jogadores[i].posição].hipoteca);
+			printf(" * Localizacao: %s\n", propriedades[jogadores[i].posição].localizaçao);
+
 
 			//Verficar se o jogador se encontra ou passou pela Casa de Partida
 			if ((jogadores[i].posição == 0) || (jogadores[i].posição < antigaPosição))
