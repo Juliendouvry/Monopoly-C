@@ -134,6 +134,21 @@ int novaPosicao(int posActual, int lancamentoDados)
 	else if (novaPos > 40) return(novaPos - 40);
 	else return novaPos;
 }
+// Remoção do elemento presente no topo da pilha CARTAS
+int popSorte(i=0, saldo=0, )
+{
+	if (quantidade > 0)
+	{
+		switch (baralho[quantidade - 1].tipo)
+		{
+		case 'a':
+			jogadores[i].posição = 0;
+			saldo = saldo + 200;
+			break;
+		}
+		quantidade--; return(1);
+	}
+}
 
 void main()
 {
@@ -409,6 +424,12 @@ void main()
 			int antigaPosição = jogadores[i].posição;
 			
 			jogadores[i].posição = novaPosicao(jogadores[i].posição, lançamentoDados());
+			switch (jogadores[i].posição)
+			{
+			case 's':
+				popSorte();
+				break;
+			}
 			printf("\n== Movimentos ==\n");
 			printf(" * Posicao = Casa %d - %s\n", jogadores[i].posição, propriedades[jogadores[i].posição].nome);
 
