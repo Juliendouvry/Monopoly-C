@@ -551,6 +551,10 @@ void main()
 				jogadores[i].saldo += 200;
 				printf(" * Saldo = %d euros\n", jogadores[i].saldo);
 			}
+			if (jogadores[i].posição = 30)
+			{
+			jogadores[i].posição = 9;
+			}
 			printf("\n\n\n");
 		}
 	} while (turno != 100);
