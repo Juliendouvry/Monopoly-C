@@ -24,7 +24,7 @@ Propriedade propriedades[40];
 //Inicializa o tabuleiro
 void inicializarTabuleiro()
 {
-	
+
 	//Casa 0 - PARTIDA
 	strcpy(propriedades[0].nome, "INICIO");
 	propriedades[0].preço = 0;
@@ -398,6 +398,9 @@ void inicializarTabuleiro()
 	strcpy(propriedades[39].proprietario, "Sem Proprietario");
 }
 
+
+
+
 //Estrutura de dados para o registo de Jogadores
 typedef struct registoJogadores
 {
@@ -448,7 +451,94 @@ int seleçãoJogadores()
 	}
 	return (nJogadores);
 }
+typedef enum Carta_tipo_struct
+{
+	SORTE, COMUNIDADE, IMPOSTO
+}CartaTipo;
 
+
+typedef struct Carta_struct
+{
+	CartaTipo tipo;
+	char descrição[50];
+}Carta;
+
+Carta baralho[5];
+
+
+int quantidade = 0;
+//Inserir um novo aluno no topo da pilha
+int push(Carta NovaCarta)
+{
+	if (quantidade < 50)
+	{
+
+		baralho[quantidade] = NovaCarta;
+		quantidade++;
+		return(1);
+	}
+	else return(0);
+}
+
+
+// Remoção do elemento presente no topo da pilha
+int pop()
+{
+	if (quantidade > 0)
+	{
+		quantidade--; return(1);
+	}//apaga ultima celula do array
+	else return(0);
+}
+
+void CriarCartas()
+{
+	Carta NovaCarta;
+	NovaCarta.tipo = SORTE;
+	NovaCarta.descrição = "Avançe até a casa de partida e receba 200.\0";
+	push(NovaCarta);
+
+	NovaCarta.descrição = "Pague a 100 da conta do hospital\0";
+	push(NovaCarta);
+
+	NovaCarta.descrição = "erro da banca a seu favor, receba 100\0";
+	push(NovaCarta);
+
+	NovaCarta.descrição = "Pague os impostos 150\0";
+	push(NovaCarta);
+
+}
+int contador = 0;
+void TirarCarta(int saldo, typedef struct registoJogadores)
+{
+
+
+	if (pop())
+	{
+
+		contador++;
+	}
+
+	switch (contador)
+	{
+	case 0:
+		saldo = saldo - 150;
+		break;
+	case 1:
+		saldo = saldo + 100;
+		break;
+	case 2:
+		saldo = saldo - 100;
+		break;
+	case 3:
+		jogadores[i].posição = 0;
+		break;
+
+	default:
+		break;
+	}
+
+}
 //Cadeia
 bool cadeia()
 {
@@ -491,7 +581,7 @@ int lançamentoDados()
 			getchar();
 		}
 	} while ((dado1 == dado2) && (contador < 3));
-	
+
 	//Vai para a cadeia casa saiam 3 doubles consecutivos
 	if (contador == 3)
 	{
@@ -568,7 +658,7 @@ void estadoJogo(int nJog)
 					else
 					{
 						if (propriedades[i].numeroCasas == 5)
-						{	
+						{
 							printf("        CASAS        : 4\n");
 							printf("        HOTEL        : 1\n");
 						}
@@ -582,7 +672,7 @@ void estadoJogo(int nJog)
 							printf("        HIPOTECADA   : Sim\n");
 						}
 						else
-							printf("        HIPOTECADA   : Nao\n");	
+							printf("        HIPOTECADA   : Nao\n");
 					}
 				}
 			}
@@ -624,7 +714,7 @@ void leiloarPropriedade(int jogador)
 {
 	int i = jogador;
 
-	
+
 }
 
 //Construir Casas
@@ -687,13 +777,13 @@ void main()
 		break;
 	}
 
-//Iniciação de um Novo Jogo
-novoJogo : 
+	//Iniciação de um Novo Jogo
+novoJogo:
 
 	//Seleção de Jogadores
 	printf("\n== Selecao de Jogadores ==\n");
 	int nJogadores = seleçãoJogadores();
-	
+
 	int turno = 10;
 	//Execução de turnos
 	do
@@ -706,7 +796,7 @@ novoJogo :
 			printf(" * SALDO   : %d euros\n", jogadores[i].saldo);
 			printf(" * POSICAO : Casa %d - %s\n", jogadores[i].posição, propriedades[jogadores[i].posição].nome);
 			printf("\n=======================================\n");
-			
+
 			//Lançamento de dados e cálculo da nova posição do jogador
 			printf("\nIra agora lancar os dados...");
 			getchar();
@@ -744,7 +834,7 @@ novoJogo :
 			int opção;
 			bool erro;
 
-			menu : printf("\nO que deseja fazer?\n");
+		menu: printf("\nO que deseja fazer?\n");
 			printf("1 - Estado do Jogo\n");
 			if (strcmp(propriedades[jogadores[i].posição].proprietario, "Sem Proprietario") == 0)
 			{
@@ -767,39 +857,39 @@ novoJogo :
 				scanf_s("%d", &opção);
 				switch (opção)
 				{
-				//1 - Estado do Jogo
+					//1 - Estado do Jogo
 				case 1: estadoJogo(nJogadores);
 					break;
 
-				//2 - Comprar Propriedade
-				case 2: 
+					//2 - Comprar Propriedade
+				case 2:
 					if (strcmp(propriedades[jogadores[i].posição].proprietario, "Sem Proprietario") == 0)
 						comprarPropriedade(i);
 					else goto menu;
 					break;
 
-				//3 - Leiloar Propriedade
+					//3 - Leiloar Propriedade
 				case 3: leiloarPropriedade(i);
 					break;
 
-			    //4 - Construir Casa
+					//4 - Construir Casa
 				case 4: construirCasa(i);
 					break;
 
-				//5 - Construir Hotel
+					//5 - Construir Hotel
 				case 5: printf("Nao implementado!");
 					break;
 
-				//6 - Verder Propriedade
+					//6 - Verder Propriedade
 				case 6: printf("Nao implementado!");
 					break;
 
-				//7 - Hipotecar Propriedade
+					//7 - Hipotecar Propriedade
 				case 7: printf("Nao implementado!");
 					break;
 
-				//Opção Inválida
-				default: 
+					//Opção Inválida
+				default:
 					printf("Erro! Introduza uma opcao valida: ");
 					erro = true;
 					break;
