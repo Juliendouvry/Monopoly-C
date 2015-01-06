@@ -10,13 +10,12 @@ Copyright 2014-2015, Gil Ferraz e Teresa Loureiro
 typedef struct registoPropriedades
 {
 	char nome[50];
-	int preço;
-	int hipoteca;
-	int aluguer[5];
-	bool estadoHipoteca;
-	int numeroCasas;
-	char cor[10];
 	char localizaçao[50];
+	char cor[10];
+	int preço;
+	int aluguer[6];
+	int numeroCasas;	
+	bool hipoteca;
 	char proprietario[20];
 } Propriedade;
 
@@ -32,53 +31,62 @@ void inicializarTabuleiro()
 
 	//Casa 1
 	strcpy(propriedades[1].nome, "Campo Grande");
-	propriedades[1].preço = 60;
-	propriedades[1].estadoHipoteca = false;
-	propriedades[1].numeroCasas = 0;
+	strcpy(propriedades[1].localizaçao, "Lisboa");	
 	strcpy(propriedades[1].cor, "Castanho");
-	strcpy(propriedades[1].localizaçao, "Lisboa");
+	propriedades[1].preço = 60;
+	propriedades[1].aluguer[0] = 2;
+	propriedades[1].aluguer[1] = 10;
+	propriedades[1].aluguer[2] = 30;
+	propriedades[1].aluguer[3] = 90;
+	propriedades[1].aluguer[4] = 160;
+	propriedades[1].aluguer[5] = 160;
+	propriedades[1].numeroCasas = 0;
+	propriedades[1].hipoteca = false;
 	strcpy(propriedades[1].proprietario, "Sem Proprietario");
 
 	//Casa 2 - CAIXA DA COMUNIDADE
 	strcpy(propriedades[2].nome, "CAIXA DA COMUNIDADE");
 	propriedades[2].preço = 0;
-	propriedades[2].hipoteca = 0;
-	propriedades[2].estadoHipoteca = false;
-	propriedades[2].numeroCasas = 0;
-	strcpy(propriedades[2].cor, "Sem Cor");
-	strcpy(propriedades[2].localizaçao, "Sem Localização");
-	strcpy(propriedades[2].proprietario, "Interdito");
 
 	//Casa 3
 	strcpy(propriedades[3].nome, "Rua Faria Guimaraes");
-	propriedades[3].preço = 60;
-	propriedades[3].hipoteca = 5;
-	propriedades[3].estadoHipoteca = false;
-	propriedades[3].numeroCasas = 0;
-	strcpy(propriedades[3].cor, "Castanho");
 	strcpy(propriedades[3].localizaçao, "Porto");
+	strcpy(propriedades[3].cor, "Castanho");
+	propriedades[3].preço = 60;
+	propriedades[3].aluguer[0] = 0;
+	propriedades[3].aluguer[1] = 0;
+	propriedades[3].aluguer[2] = 0;
+	propriedades[3].aluguer[3] = 0;
+	propriedades[3].aluguer[4] = 0;
+	propriedades[3].aluguer[5] = 0;
+	propriedades[3].numeroCasas = 0;
+	propriedades[3].hipoteca = false;
 	strcpy(propriedades[3].proprietario, "Sem Proprietario");
 
-	//Casa 4 - IMPOSTO SOBRE CAPITAIS (200$ ou 10%)
+	//Casa 4 - IMPOSTO SOBRE CAPITAIS (M200)
 	strcpy(propriedades[4].nome, "IMPOSTO SOBRE CAPITAIS");
 	propriedades[4].preço = 0;
 
 	//Casa 5 - ESTAÇÃO
 	strcpy(propriedades[5].nome, "Estacao do Rossio");
-	propriedades[5].preço = 200;
-	propriedades[5].hipoteca = 50;
-	propriedades[5].estadoHipoteca = false;
-	strcpy(propriedades[5].cor, "Estacao");
 	strcpy(propriedades[5].localizaçao, "Lisboa");
+	strcpy(propriedades[5].cor, "Estacao");
+	propriedades[5].preço = 200;
+	propriedades[5].hipoteca = false;
 	strcpy(propriedades[5].proprietario, "Sem Proprietario");
 
 	//Casa 6
 	strcpy(propriedades[6].nome, "Alameda das Linhas de Torres");
-	propriedades[6].preço = 100;
-	propriedades[6].hipoteca = 50;
-	propriedades[6].estadoHipoteca = false;
-	strcpy(propriedades[6].cor, "Azul claro");
 	strcpy(propriedades[6].localizaçao, "Lisboa");
+	strcpy(propriedades[6].cor, "Azul claro");
+	propriedades[6].preço = 100;
+	propriedades[6].aluguer[0] = 0;
+	propriedades[6].aluguer[1] = 0;
+	propriedades[6].aluguer[2] = 0;
+	propriedades[6].aluguer[3] = 0;
+	propriedades[6].aluguer[4] = 0;
+	propriedades[6].aluguer[5] = 0;
+	propriedades[6].hipoteca = false;
 	strcpy(propriedades[6].proprietario, "Sem Proprietario");
 
 	//Casa 7 - SORTE
@@ -86,79 +94,106 @@ void inicializarTabuleiro()
 	propriedades[7].preço = 0;
 
 	//Casa 8
-	strcpy(propriedades[8].nome, "Avenida das Nacoes Unidas");
-	propriedades[8].preço = 100;
-	propriedades[8].hipoteca = 50;
-	propriedades[8].estadoHipoteca = false;
-	strcpy(propriedades[8].cor, "Azul claro");
+	strcpy(propriedades[8].nome, "Avenida das Nacoes Unidas");	
 	strcpy(propriedades[8].localizaçao, "Lisboa");
+	strcpy(propriedades[8].cor, "Azul claro");
+	propriedades[8].preço = 100;
+	propriedades[8].aluguer[0] = 0;
+	propriedades[8].aluguer[1] = 0;
+	propriedades[8].aluguer[2] = 0;
+	propriedades[8].aluguer[3] = 0;
+	propriedades[8].aluguer[4] = 0;
+	propriedades[8].aluguer[5] = 0;
+	propriedades[8].hipoteca = false;
 	strcpy(propriedades[8].proprietario, "Sem Proprietario");
 
 	//Casa 9
 	strcpy(propriedades[9].nome, "Avenida 24 de Julho");
-	propriedades[9].preço = 120;
-	propriedades[9].hipoteca = 50;
-	propriedades[9].estadoHipoteca = false;
-	strcpy(propriedades[9].cor, "Azul claro");
 	strcpy(propriedades[9].localizaçao, "Lisboa");
+	strcpy(propriedades[9].cor, "Azul claro");
+	propriedades[9].preço = 120;
+	propriedades[9].aluguer[0] = 0;
+	propriedades[9].aluguer[1] = 0;
+	propriedades[9].aluguer[2] = 0;
+	propriedades[9].aluguer[3] = 0;
+	propriedades[9].aluguer[4] = 0;
+	propriedades[9].aluguer[5] = 0;
+	propriedades[9].hipoteca = false;
 	strcpy(propriedades[9].proprietario, "Sem Proprietario");
 
-	//Casa 10 - CADEIA - APENAS VISITANTE
+	//Casa 10 - CADEIA - VISITANTE
 	strcpy(propriedades[10].nome, "CADEIA - VISITANTE");
 	propriedades[10].preço = 0;
 
 	//Casa 11
 	strcpy(propriedades[11].nome, "Avenida Central");
-	propriedades[11].preço = 140;
-	propriedades[11].hipoteca = 50;
-	propriedades[11].estadoHipoteca = false;
-	strcpy(propriedades[11].cor, "Rosa");
 	strcpy(propriedades[11].localizaçao, "Braga");
+	strcpy(propriedades[11].cor, "Rosa");
+	propriedades[11].preço = 140;
+	propriedades[11].aluguer[0] = 0;
+	propriedades[11].aluguer[1] = 0;
+	propriedades[11].aluguer[2] = 0;
+	propriedades[11].aluguer[3] = 0;
+	propriedades[11].aluguer[4] = 0;
+	propriedades[11].aluguer[5] = 0;
+	propriedades[11].hipoteca = false;
 	strcpy(propriedades[11].proprietario, "Sem Proprietario");
 
 	//Casa 12 - COMPANHIA DA ELETRECIDADE
 	strcpy(propriedades[12].nome, "Companhia de Eletricidade");
-	propriedades[12].preço = 150;
-	propriedades[12].hipoteca = 0;
-	propriedades[12].estadoHipoteca = false;
 	strcpy(propriedades[12].cor, "Servicos");
-	strcpy(propriedades[12].localizaçao, "Sem Localizacao");
+	propriedades[12].preço = 150;
+	propriedades[12].hipoteca = false;
 	strcpy(propriedades[12].proprietario, "Sem Proprietario");
 
 	//Casa 13
 	strcpy(propriedades[13].nome, "Rua Ferreira Borges");
-	propriedades[13].preço = 140;
-	propriedades[13].hipoteca = 50;
-	propriedades[13].estadoHipoteca = false;
-	strcpy(propriedades[13].cor, "Rosa");
 	strcpy(propriedades[13].localizaçao, "Coimbra");
+	strcpy(propriedades[13].cor, "Rosa");
+	propriedades[13].preço = 140;
+	propriedades[13].aluguer[0] = 0;
+	propriedades[13].aluguer[1] = 0;
+	propriedades[13].aluguer[2] = 0;
+	propriedades[13].aluguer[3] = 0;
+	propriedades[13].aluguer[4] = 0;
+	propriedades[13].aluguer[5] = 0;
+	propriedades[13].hipoteca = false;
 	strcpy(propriedades[13].proprietario, "Sem Proprietario");
 
 	//Casa 14
 	strcpy(propriedades[14].nome, "Avenida de Roma");
-	propriedades[14].preço = 160;
-	propriedades[14].hipoteca = 50;
-	propriedades[14].estadoHipoteca = false;
-	strcpy(propriedades[14].cor, "Rosa");
 	strcpy(propriedades[14].localizaçao, "Lisboa");
+	strcpy(propriedades[14].cor, "Rosa");
+	propriedades[14].preço = 160;
+	propriedades[14].aluguer[0] = 0;
+	propriedades[14].aluguer[1] = 0;
+	propriedades[14].aluguer[2] = 0;
+	propriedades[14].aluguer[3] = 0;
+	propriedades[14].aluguer[4] = 0;
+	propriedades[14].aluguer[5] = 0;
+	propriedades[14].hipoteca = false;
 	strcpy(propriedades[14].proprietario, "Sem Proprietario");
 
 	//Casa 15 - ESTAÇÃO
 	strcpy(propriedades[15].nome, "Gare do Oriente");
-	propriedades[15].preço = 200;
-	propriedades[15].hipoteca = 50;
-	propriedades[15].estadoHipoteca = false;
-	strcpy(propriedades[15].cor, "Estacao");
 	strcpy(propriedades[15].localizaçao, "Lisboa");
+	strcpy(propriedades[15].cor, "Estacao");
+	propriedades[15].preço = 200;
+	propriedades[15].hipoteca = false;
 	strcpy(propriedades[15].proprietario, "Sem Proprietario");
 
 	//Casa 16
 	strcpy(propriedades[16].nome, "Avenida da Boavista");
-	propriedades[16].preço = 180;
-	propriedades[16].hipoteca = 50;
-	propriedades[16].estadoHipoteca = false;
-	strcpy(propriedades[16].cor, "Laranja");
 	strcpy(propriedades[16].localizaçao, "Porto");
+	strcpy(propriedades[16].cor, "Laranja");
+	propriedades[16].preço = 180;
+	propriedades[16].aluguer[0] = 0;
+	propriedades[16].aluguer[1] = 0;
+	propriedades[16].aluguer[2] = 0;
+	propriedades[16].aluguer[3] = 0;
+	propriedades[16].aluguer[4] = 0;
+	propriedades[16].aluguer[5] = 0;
+	propriedades[16].hipoteca = false;
 	strcpy(propriedades[16].proprietario, "Sem Proprietario");
 
 	//Casa 17 - CAIXA DA COMUNIDADE
@@ -167,20 +202,30 @@ void inicializarTabuleiro()
 
 	//Casa 18
 	strcpy(propriedades[18].nome, "Avenida da Republica");
-	propriedades[18].preço = 180;
-	propriedades[18].hipoteca = 50;
-	propriedades[18].estadoHipoteca = false;
-	strcpy(propriedades[18].cor, "Laranja");
 	strcpy(propriedades[18].localizaçao, "Lisboa");
+	strcpy(propriedades[18].cor, "Laranja");
+	propriedades[18].preço = 180;
+	propriedades[18].aluguer[0] = 0;
+	propriedades[18].aluguer[1] = 0;
+	propriedades[18].aluguer[2] = 0;
+	propriedades[18].aluguer[3] = 0;
+	propriedades[18].aluguer[4] = 0;
+	propriedades[18].aluguer[5] = 0;
+	propriedades[18].hipoteca = false;
 	strcpy(propriedades[18].proprietario, "Sem Proprietario");
 
 	//Casa 19
 	strcpy(propriedades[19].nome, "Rua Mouzinho da Silveira");
-	propriedades[19].preço = 200;
-	propriedades[19].hipoteca = 50;
-	propriedades[19].estadoHipoteca = false;
-	strcpy(propriedades[19].cor, "Laranja");
 	strcpy(propriedades[19].localizaçao, "Porto");
+	strcpy(propriedades[19].cor, "Laranja");
+	propriedades[19].preço = 200;
+	propriedades[19].aluguer[0] = 0;
+	propriedades[19].aluguer[1] = 0;
+	propriedades[19].aluguer[2] = 0;
+	propriedades[19].aluguer[3] = 0;
+	propriedades[19].aluguer[4] = 0;
+	propriedades[19].aluguer[5] = 0;
+	propriedades[19].hipoteca = false;
 	strcpy(propriedades[19].proprietario, "Sem Proprietario");
 
 	//Casa 20 - ESTACIONAMENTO LIVRE
@@ -189,11 +234,16 @@ void inicializarTabuleiro()
 
 	//Casa 21
 	strcpy(propriedades[21].nome, "Rua de Santa Catarina");
-	propriedades[21].preço = 220;
-	propriedades[21].hipoteca = 50;
-	propriedades[21].estadoHipoteca = false;
+	strcpy(propriedades[21].localizaçao, "Porto");	
 	strcpy(propriedades[21].cor, "Vermelho");
-	strcpy(propriedades[21].localizaçao, "Porto");
+	propriedades[21].preço = 220;
+	propriedades[21].aluguer[0] = 0;
+	propriedades[21].aluguer[1] = 0;
+	propriedades[21].aluguer[2] = 0;
+	propriedades[21].aluguer[3] = 0;
+	propriedades[21].aluguer[4] = 0;
+	propriedades[21].aluguer[5] = 0;
+	propriedades[21].hipoteca = false;
 	strcpy(propriedades[21].proprietario, "Sem Proprietario");
 
 	//Casa 22 - SORTE
@@ -202,65 +252,87 @@ void inicializarTabuleiro()
 
 	//Casa 23
 	strcpy(propriedades[23].nome, "Avenida Infante Santo");
-	propriedades[23].preço = 220;
-	propriedades[23].hipoteca = 50;
-	propriedades[23].estadoHipoteca = false;
-	strcpy(propriedades[23].cor, "Vermelho");
 	strcpy(propriedades[23].localizaçao, "Lisboa");
+	strcpy(propriedades[23].cor, "Vermelho");
+	propriedades[23].preço = 220;
+	propriedades[23].aluguer[0] = 0;
+	propriedades[23].aluguer[1] = 0;
+	propriedades[23].aluguer[2] = 0;
+	propriedades[23].aluguer[3] = 0;
+	propriedades[23].aluguer[4] = 0;
+	propriedades[23].aluguer[5] = 0;
+	propriedades[23].hipoteca = false;
 	strcpy(propriedades[23].proprietario, "Sem Proprietario");
 
 	//Casa 24
 	strcpy(propriedades[24].nome, "Rua Julio Diniz");
-	propriedades[24].preço = 240;
-	propriedades[24].hipoteca = 50;
-	propriedades[24].estadoHipoteca = false;
-	strcpy(propriedades[24].cor, "Vermelho");
 	strcpy(propriedades[24].localizaçao, "Porto");
+	strcpy(propriedades[24].cor, "Vermelho");
+	propriedades[24].preço = 240;
+	propriedades[24].aluguer[0] = 0;
+	propriedades[24].aluguer[1] = 0;
+	propriedades[24].aluguer[2] = 0;
+	propriedades[24].aluguer[3] = 0;
+	propriedades[24].aluguer[4] = 0;
+	propriedades[24].aluguer[5] = 0;
+	propriedades[24].hipoteca = false;
 	strcpy(propriedades[24].proprietario, "Sem Proprietario");
 
 	//Casa 25 - ESTAÇÂO
 	strcpy(propriedades[25].nome, "Estacao de S. Bento");
-	propriedades[25].preço = 200;
-	propriedades[25].hipoteca = 50;
-	propriedades[25].estadoHipoteca = false;
-	strcpy(propriedades[25].cor, "Estacao");
 	strcpy(propriedades[25].localizaçao, "Porto");
+	strcpy(propriedades[25].cor, "Estacao");
+	propriedades[25].preço = 200;
+	propriedades[25].hipoteca = false;
 	strcpy(propriedades[25].proprietario, "Sem Proprietario");
 
 	//Casa 26
 	strcpy(propriedades[26].nome, "Praca da Republica");
-	propriedades[26].preço = 260;
-	propriedades[26].hipoteca = 50;
-	propriedades[26].estadoHipoteca = false;
-	strcpy(propriedades[26].cor, "Amarelo");
 	strcpy(propriedades[26].localizaçao, "Porto");
+	strcpy(propriedades[26].cor, "Amarelo");
+	propriedades[26].preço = 260;
+	propriedades[26].aluguer[0] = 0;
+	propriedades[26].aluguer[1] = 0;
+	propriedades[26].aluguer[2] = 0;
+	propriedades[26].aluguer[3] = 0;
+	propriedades[26].aluguer[4] = 0;
+	propriedades[26].aluguer[5] = 0;
+	propriedades[26].hipoteca = false;
 	strcpy(propriedades[26].proprietario, "Sem Proprietario");
 
 	//Casa 27
 	strcpy(propriedades[27].nome, "Avenida Fontes Pereira de Melo");
-	propriedades[27].preço = 260;
-	propriedades[27].hipoteca = 50;
-	propriedades[27].estadoHipoteca = false;
-	strcpy(propriedades[27].cor, "Amarelo");
 	strcpy(propriedades[27].localizaçao, "Lisboa");
+	strcpy(propriedades[27].cor, "Amarelo");
+	propriedades[27].preço = 260;
+	propriedades[27].aluguer[0] = 0;
+	propriedades[27].aluguer[1] = 0;
+	propriedades[27].aluguer[2] = 0;
+	propriedades[27].aluguer[3] = 0;
+	propriedades[27].aluguer[4] = 0;
+	propriedades[27].aluguer[5] = 0;
+	propriedades[27].hipoteca = false;
 	strcpy(propriedades[27].proprietario, "Sem Proprietario");
 
 	//Casa 28 - COMPANHIA DAS ÁGUAS
 	strcpy(propriedades[28].nome, "Companhia das Aguas");
-	propriedades[28].preço = 150;
-	propriedades[28].hipoteca = 50;
-	propriedades[28].estadoHipoteca = false;
 	strcpy(propriedades[28].cor, "Servicos");
-	strcpy(propriedades[28].localizaçao, "Sem Localizacao");
+	propriedades[28].preço = 150;
+	propriedades[28].hipoteca = false;
 	strcpy(propriedades[28].proprietario, "Sem Proprietario");
 
 	//Casa 29
 	strcpy(propriedades[29].nome, "Rotunda da Boavista");
-	propriedades[29].preço = 280;
-	propriedades[29].hipoteca = 50;
-	propriedades[29].estadoHipoteca = false;
-	strcpy(propriedades[29].cor, "Amarelo");
 	strcpy(propriedades[29].localizaçao, "Porto");
+	strcpy(propriedades[29].cor, "Amarelo");
+	propriedades[29].aluguer[0] = 0;
+	propriedades[29].aluguer[1] = 0;
+	propriedades[29].aluguer[2] = 0;
+	propriedades[29].aluguer[3] = 0;
+	propriedades[29].aluguer[4] = 0;
+	propriedades[29].aluguer[5] = 0;
+	propriedades[29].preço = 280;
+	propriedades[29].hipoteca = false;
 	strcpy(propriedades[29].proprietario, "Sem Proprietario");
 
 	//Casa 30 - VÁ PARA A CADEIA
@@ -269,20 +341,30 @@ void inicializarTabuleiro()
 
 	//Casa 31
 	strcpy(propriedades[31].nome, "Avenida da Liberdade");
-	propriedades[31].preço = 300;
-	propriedades[31].hipoteca = 50;
-	propriedades[31].estadoHipoteca = false;
-	strcpy(propriedades[31].cor, "Verde");
 	strcpy(propriedades[31].localizaçao, "Lisboa");
+	strcpy(propriedades[31].cor, "Verde");
+	propriedades[31].preço = 300;
+	propriedades[31].aluguer[0] = 0;
+	propriedades[31].aluguer[1] = 0;
+	propriedades[31].aluguer[2] = 0;
+	propriedades[31].aluguer[3] = 0;
+	propriedades[31].aluguer[4] = 0;
+	propriedades[31].aluguer[5] = 0;
+	propriedades[31].hipoteca = false;
 	strcpy(propriedades[31].proprietario, "Sem Proprietario");
 
 	//Casa 32
 	strcpy(propriedades[32].nome, "Rua dos Clerigos");
-	propriedades[32].preço = 300;
-	propriedades[32].hipoteca = 50;
-	propriedades[32].estadoHipoteca = false;
-	strcpy(propriedades[32].cor, "Verde");
 	strcpy(propriedades[32].localizaçao, "Porto");
+	strcpy(propriedades[32].cor, "Verde");
+	propriedades[32].preço = 300;
+	propriedades[32].aluguer[0] = 0;
+	propriedades[32].aluguer[1] = 0;
+	propriedades[32].aluguer[2] = 0;
+	propriedades[32].aluguer[3] = 0;
+	propriedades[32].aluguer[4] = 0;
+	propriedades[32].aluguer[5] = 0;
+	propriedades[32].hipoteca = false;
 	strcpy(propriedades[32].proprietario, "Sem Proprietario");
 
 	//Casa 33 - CAIXA DA COMUNIDADE
@@ -291,20 +373,24 @@ void inicializarTabuleiro()
 
 	//Casa 34
 	strcpy(propriedades[34].nome, "Avenida do Parque das Nacoes");
-	propriedades[34].preço = 320;
-	propriedades[34].hipoteca = 50;
-	propriedades[34].estadoHipoteca = false;
-	strcpy(propriedades[34].cor, "Verde");
 	strcpy(propriedades[34].localizaçao, "Lisboa");
+	strcpy(propriedades[34].cor, "Verde");
+	propriedades[34].preço = 320;
+	propriedades[34].aluguer[0] = 0;
+	propriedades[34].aluguer[1] = 0;
+	propriedades[34].aluguer[2] = 0;
+	propriedades[34].aluguer[3] = 0;
+	propriedades[34].aluguer[4] = 0;
+	propriedades[34].aluguer[5] = 0;
+	propriedades[34].hipoteca = false;
 	strcpy(propriedades[34].proprietario, "Sem Proprietario");
 
 	//Casa 35 - ESTAÇÃO
-	strcpy(propriedades[35].nome, "Estacao de Santa Apolonia");
-	propriedades[35].preço = 200;
-	propriedades[35].hipoteca = 50;
-	propriedades[35].estadoHipoteca = false;
-	strcpy(propriedades[35].cor, "Estacao");
+	strcpy(propriedades[35].nome, "Estacao de Santa Apolonia");	
 	strcpy(propriedades[35].localizaçao, "Lisboa");
+	strcpy(propriedades[35].cor, "Estacao");
+	propriedades[35].preço = 200;
+	propriedades[35].hipoteca = false;
 	strcpy(propriedades[35].proprietario, "Sem Proprietario");
 
 	//Casa 36 - SORTE
@@ -313,11 +399,16 @@ void inicializarTabuleiro()
 
 	//Casa 37
 	strcpy(propriedades[37].nome, "Rua das Amoreiras");
-	propriedades[37].preço = 350;
-	propriedades[37].hipoteca = 50;
-	propriedades[37].estadoHipoteca = false;
-	strcpy(propriedades[37].cor, "Azul escuro");
 	strcpy(propriedades[37].localizaçao, "Lisboa");
+	strcpy(propriedades[37].cor, "Azul escuro");
+	propriedades[37].preço = 350;
+	propriedades[37].aluguer[0] = 0;
+	propriedades[37].aluguer[1] = 0;
+	propriedades[37].aluguer[2] = 0;
+	propriedades[37].aluguer[3] = 0;
+	propriedades[37].aluguer[4] = 0;
+	propriedades[37].aluguer[5] = 0;
+	propriedades[37].hipoteca = false;
 	strcpy(propriedades[37].proprietario, "Sem Proprietario");
 
 	//Casa 38 - IMPOSTO DE LUXO
@@ -326,11 +417,16 @@ void inicializarTabuleiro()
 
 	//Casa 39
 	strcpy(propriedades[39].nome, "Rossio");
-	propriedades[39].preço = 400;
-	propriedades[39].hipoteca = 50;
-	propriedades[39].estadoHipoteca = false;
-	strcpy(propriedades[39].cor, "Azul escuro");
 	strcpy(propriedades[39].localizaçao, "Lisboa");
+	strcpy(propriedades[39].cor, "Azul escuro");
+	propriedades[39].preço = 400;
+	propriedades[39].aluguer[0] = 0;
+	propriedades[39].aluguer[1] = 0;
+	propriedades[39].aluguer[2] = 0;
+	propriedades[39].aluguer[3] = 0;
+	propriedades[39].aluguer[4] = 0;
+	propriedades[39].aluguer[5] = 0;
+	propriedades[39].hipoteca = false;
 	strcpy(propriedades[39].proprietario, "Sem Proprietario");
 }
 
@@ -516,7 +612,7 @@ void estadoJogo(int nJog)
 							printf("        CASAS        : %d\n", propriedades[i].numeroCasas);
 							printf("        HOTEL        : 0\n");
 						}
-						if (propriedades[i].estadoHipoteca == true)
+						if (propriedades[i].hipoteca == true)
 						{
 							printf("        HIPOTECADA   : Sim\n");
 						}
@@ -687,14 +783,20 @@ void hipotecarPropriedade(int jog)
 	printf(" 0 - Nao\n");
 
 menuHipoteca:
+	printf("Insira uma opcao: ");
+	scanf("%d", opção);
 	switch (opção)
 	{
 	case 1:
+		propriedades[jogadores[i].posição].hipoteca = true;
+		printf("A propriedade %s foi hipotecada.\n", propriedades[i].nome);
+		fflush(stdin);
+		getchar();
 		break;
 	case 2:
 		break;
 	default:
-		printf("Erro! Opcao invalida.");
+		printf("Erro! Opcao invalida.\n");
 		fflush(stdin);
 		getchar();
 		goto menuHipoteca;
@@ -738,7 +840,10 @@ novoJogo :
 	printf("\n======================= Selecao de Jogadores =======================\n");
 	int nJogadores = seleçãoJogadores();
 	printf("\n====================================================================\n");
-	
+	fflush(stdin);
+	getchar();
+	system("cls");
+
 	int turno = 1;
 	//Execução de turnos
 	do
@@ -763,44 +868,74 @@ novoJogo :
 			{
 				printf("\n Passou pelo casa Partida. Recebe 200 euros.\n");
 				jogadores[i].saldo += 200;
-				printf(" * NOVO SALDO : %d euros\n", jogadores[i].saldo);
+				printf("\nSALDO ATUAL : %d euros\n", jogadores[i].saldo);
 			}
-			printf("\n * NOVA POSICAO = Casa %d - %s\n", jogadores[i].posição, propriedades[jogadores[i].posição].nome);
+			printf("\nPOSICAO ATUAL = Casa %d - %s\n", jogadores[i].posição, propriedades[jogadores[i].posição].nome);
 
 			//Detalhes da casa em que o jogador se encontra
-			printf("\n             PROPRIEDADE           \n");
-			printf(" __________________________________\n");
-			printf(" |                                |\n");
-			printf(" | %-30.30s |   * PROPRIETARIO : %s\n", propriedades[jogadores[i].posição].nome, propriedades[jogadores[i].posição].proprietario);
-			printf(" | %-30.30s |\n", propriedades[jogadores[i].posição].localizaçao);
-			printf(" |                                |   * CASAS        : %d\n", propriedades[jogadores[i].posição].numeroCasas);
-			printf(" |  COR %-11.11s   PRECO $%3d  |   * HOTEL        : %d\n", propriedades[jogadores[i].posição].cor, propriedades[jogadores[i].posição].preço, propriedades[jogadores[i].posição].numeroCasas);
-			printf(" | ------------------------------ |\n");
-			printf(" |             ALUGUER            |\n");
-			printf(" |   Terreno              $%3d    |\n", propriedades[jogadores[i].posição].preço);
-			printf(" |                                |\n");
-			printf(" |   Com 1 Casa           $%3d    |\n", propriedades[jogadores[i].posição].preço);
-			printf(" |                                |\n");
-			printf(" |   Com 2 Casas          $%3d    |\n", propriedades[jogadores[i].posição].preço);
-			printf(" |                                |\n");
-			printf(" |   Com 3 Casas          $%3d    |\n", propriedades[jogadores[i].posição].preço);
-			printf(" |                                |\n");
-			printf(" |   Com 4 Casas          $%3d    |\n", propriedades[jogadores[i].posição].preço);
-			printf(" |                                |\n");
-			printf(" |   Com HOTEL            $%3d    |\n", propriedades[jogadores[i].posição].preço);
-			printf(" | ------------------------------ |\n");
-			printf(" |     Preco de cada Casa $%3d    |\n", propriedades[jogadores[i].posição].preço);
-			printf(" |                                |\n");
-			printf(" |     Valor da Hipoteca $%3d     |\n", propriedades[jogadores[i].posição].hipoteca);
-			printf(" | ------------------------------ |\n");
-			printf(" |                                |\n");
-			printf(" __________________________________\n");
+			if (propriedades[jogadores[i].posição].preço != 0)
+			{
+				printf("\n             PROPRIEDADE           \n");
+				printf(" __________________________________\n");
+				printf(" |                                |\n");
+				printf(" | %-30.30s |   * PROPRIETARIO : %s\n", propriedades[jogadores[i].posição].nome, propriedades[jogadores[i].posição].proprietario);
+				printf(" | %-30.30s |\n", propriedades[jogadores[i].posição].localizaçao);
+				printf(" |                                |   * CASAS        : %d\n", propriedades[jogadores[i].posição].numeroCasas);
+				printf(" |  COR %-11.11s   PRECO $%3d  |   * HOTEL        : %d\n", propriedades[jogadores[i].posição].cor, propriedades[jogadores[i].posição].preço, propriedades[jogadores[i].posição].numeroCasas);
+				printf(" | ------------------------------ |\n");
+				printf(" |             ALUGUER            |\n");
+				printf(" |   Terreno              $%3d    |\n", propriedades[jogadores[i].posição].aluguer[0]);
+				printf(" |                                |\n");
+				printf(" |   Grupo-cor            $%3d    |\n", propriedades[jogadores[i].posição].aluguer[0] * 2);
+				printf(" |                                |\n");
+				printf(" |   Com 1 Casa           $%3d    |\n", propriedades[jogadores[i].posição].aluguer[1]);
+				printf(" |                                |\n");
+				printf(" |   Com 2 Casas          $%3d    |\n", propriedades[jogadores[i].posição].aluguer[2]);
+				printf(" |                                |\n");
+				printf(" |   Com 3 Casas          $%3d    |\n", propriedades[jogadores[i].posição].aluguer[3]);
+				printf(" |                                |\n");
+				printf(" |   Com 4 Casas          $%3d    |\n", propriedades[jogadores[i].posição].aluguer[4]);
+				printf(" |                                |\n");
+				printf(" |   Com HOTEL            $%3d    |\n", propriedades[jogadores[i].posição].aluguer[5]);
+				printf(" | ------------------------------ |\n");
+				printf(" |     Preco de cada Casa $%3d    |\n", propriedades[jogadores[i].posição].preço);
+				printf(" |                                |\n");
+				printf(" |     Valor da Hipoteca $%3d     |\n", propriedades[jogadores[i].posição].hipoteca);
+				printf(" | ------------------------------ |\n");
+				printf(" |                                |\n");
+				printf(" __________________________________\n");
+			}
+			else if (strcmp(propriedades[jogadores[i].posição].nome, "SORTE") == 0)
+			{
+				printf("\n             %s           \n", propriedades[jogadores[i].posição].nome);
+				printf("Retire uma carta de SORTE...\n");
+				fflush(stdin);
+				getchar();
+			}
+			else if (strcmp(propriedades[jogadores[i].posição].nome, "CAIXA DA COMUNIDADE") == 0)
+			{
+				printf("\n             %s           \n", propriedades[jogadores[i].posição].nome);
+				printf("Retire uma carta da CAIXA DE COMUNIDADE...\n");
+				fflush(stdin);
+				getchar();
+			}
+			else if (strcmp(propriedades[jogadores[i].posição].nome, "IMPOSTO DE LUXO") == 0)
+			{
+				printf("\n             %s           \n", propriedades[jogadores[i].posição].nome);
+				printf("Pague M200 de IMPOSTO DE LUXO.");
+				fflush(stdin);
+				getchar();
+				jogadores[i].saldo -= 200;
+				printf("\nSALDO ATUAL : %d", jogadores[i].saldo);
+			}
+			else if ((strcmp(propriedades[jogadores[i].posição].nome, "CADEIA - VISITANTE") == 0) && (strcmp(propriedades[i].nome, "PARQUE DE ESTACIONAMENTO") == 0))
+				printf("\n             %s           \n", propriedades[jogadores[i].posição].nome);
 
-			//Menu
-			int opção;
-			bool erro;
 
-			menu : printf("\nO que deseja fazer?\n");
+			//Menu do Jogador
+			int opção = 0;
+
+			printf("\nO que deseja fazer?\n");
 			printf("1 - Estado do Jogo\n");
 			if (strcmp(propriedades[jogadores[i].posição].proprietario, "Sem Proprietario") == 0)
 			{
@@ -829,7 +964,7 @@ novoJogo :
 			case 2: 
 				if (strcmp(propriedades[jogadores[i].posição].proprietario, "Sem Proprietario") == 0)
 					comprarPropriedade(i);
-				else goto menu;
+				else goto menuJogador;
 				break;
 
 			//3 - Leiloar Propriedade
@@ -849,7 +984,11 @@ novoJogo :
 				break;
 
 			//7 - Hipotecar Propriedade
-			case 7: printf("Nao implementado!");
+			case 7: hipotecarPropriedade(i);
+				break;
+
+			//0 - Terminar Turno
+			case 0:
 				break;
 
 			//Opção Inválida
