@@ -12,6 +12,7 @@ typedef struct registoPropriedades
 	char nome[50];
 	int preço;
 	int hipoteca;
+	int aluguer[5];
 	bool estadoHipoteca;
 	int numeroCasas;
 	char cor[10];
@@ -28,17 +29,10 @@ void inicializarTabuleiro()
 	//Casa 0 - PARTIDA
 	strcpy(propriedades[0].nome, "INICIO");
 	propriedades[0].preço = 0;
-	propriedades[0].hipoteca = 0;
-	propriedades[0].estadoHipoteca = false;
-	propriedades[0].numeroCasas = 0;
-	strcpy(propriedades[0].cor, "Sem Cor");
-	strcpy(propriedades[0].localizaçao, "Sem Localização");
-	strcpy(propriedades[0].proprietario, "Interdito");
 
 	//Casa 1
 	strcpy(propriedades[1].nome, "Campo Grande");
 	propriedades[1].preço = 60;
-	propriedades[1].hipoteca = 5;
 	propriedades[1].estadoHipoteca = false;
 	propriedades[1].numeroCasas = 0;
 	strcpy(propriedades[1].cor, "Castanho");
@@ -68,12 +62,6 @@ void inicializarTabuleiro()
 	//Casa 4 - IMPOSTO SOBRE CAPITAIS (200$ ou 10%)
 	strcpy(propriedades[4].nome, "IMPOSTO SOBRE CAPITAIS");
 	propriedades[4].preço = 0;
-	propriedades[4].hipoteca = 0;
-	propriedades[4].estadoHipoteca = false;
-	propriedades[4].numeroCasas = 0;
-	strcpy(propriedades[4].cor, "Sem Cor");
-	strcpy(propriedades[4].localizaçao, "Sem Localização");
-	strcpy(propriedades[4].proprietario, "Interdito");
 
 	//Casa 5 - ESTAÇÃO
 	strcpy(propriedades[5].nome, "Estacao do Rossio");
@@ -96,12 +84,6 @@ void inicializarTabuleiro()
 	//Casa 7 - SORTE
 	strcpy(propriedades[7].nome, "SORTE");
 	propriedades[7].preço = 0;
-	propriedades[7].hipoteca = 0;
-	propriedades[7].estadoHipoteca = false;
-	propriedades[7].numeroCasas = 0;
-	strcpy(propriedades[7].cor, "Sem Cor");
-	strcpy(propriedades[7].localizaçao, "Sem Localização");
-	strcpy(propriedades[7].proprietario, "Interdito");
 
 	//Casa 8
 	strcpy(propriedades[8].nome, "Avenida das Nacoes Unidas");
@@ -121,14 +103,9 @@ void inicializarTabuleiro()
 	strcpy(propriedades[9].localizaçao, "Lisboa");
 	strcpy(propriedades[9].proprietario, "Sem Proprietario");
 
-	//Casa 10 - CADEIA / DE VISITA
-	strcpy(propriedades[10].nome, "CADEIA");
+	//Casa 10 - CADEIA - APENAS VISITANTE
+	strcpy(propriedades[10].nome, "CADEIA - VISITANTE");
 	propriedades[10].preço = 0;
-	propriedades[10].hipoteca = 0;
-	propriedades[10].estadoHipoteca = false;
-	strcpy(propriedades[10].cor, "Sem Cor");
-	strcpy(propriedades[10].localizaçao, "Sem Localizacao");
-	strcpy(propriedades[10].proprietario, "Interdito");
 
 	//Casa 11
 	strcpy(propriedades[11].nome, "Avenida Central");
@@ -187,12 +164,6 @@ void inicializarTabuleiro()
 	//Casa 17 - CAIXA DA COMUNIDADE
 	strcpy(propriedades[17].nome, "CAIXA DA COMUNIDADE");
 	propriedades[17].preço = 0;
-	propriedades[17].hipoteca = 0;
-	propriedades[17].estadoHipoteca = false;
-	propriedades[17].numeroCasas = 0;
-	strcpy(propriedades[17].cor, "Sem Cor");
-	strcpy(propriedades[17].localizaçao, "Sem Localização");
-	strcpy(propriedades[17].proprietario, "Interdito");
 
 	//Casa 18
 	strcpy(propriedades[18].nome, "Avenida da Republica");
@@ -215,11 +186,6 @@ void inicializarTabuleiro()
 	//Casa 20 - ESTACIONAMENTO LIVRE
 	strcpy(propriedades[20].nome, "ESTACIONAMENTO LIVRE");
 	propriedades[20].preço = 0;
-	propriedades[20].hipoteca = 0;
-	propriedades[20].estadoHipoteca = false;
-	strcpy(propriedades[20].cor, "Sem Cor");
-	strcpy(propriedades[20].localizaçao, "Sem Localizacao");
-	strcpy(propriedades[20].proprietario, "Interdito");
 
 	//Casa 21
 	strcpy(propriedades[21].nome, "Rua de Santa Catarina");
@@ -233,12 +199,6 @@ void inicializarTabuleiro()
 	//Casa 22 - SORTE
 	strcpy(propriedades[22].nome, "SORTE");
 	propriedades[22].preço = 0;
-	propriedades[22].hipoteca = 0;
-	propriedades[22].estadoHipoteca = false;
-	propriedades[22].numeroCasas = 0;
-	strcpy(propriedades[22].cor, "Sem Cor");
-	strcpy(propriedades[22].localizaçao, "Sem Localização");
-	strcpy(propriedades[22].proprietario, "Interdito");
 
 	//Casa 23
 	strcpy(propriedades[23].nome, "Avenida Infante Santo");
@@ -306,12 +266,6 @@ void inicializarTabuleiro()
 	//Casa 30 - VÁ PARA A CADEIA
 	strcpy(propriedades[30].nome, "VA PARA A CADEIA");
 	propriedades[30].preço = 0;
-	propriedades[30].hipoteca = 0;
-	propriedades[30].estadoHipoteca = false;
-	propriedades[30].numeroCasas = 0;
-	strcpy(propriedades[30].cor, "Sem Cor");
-	strcpy(propriedades[30].localizaçao, "Sem Localização");
-	strcpy(propriedades[30].proprietario, "Interdito");
 
 	//Casa 31
 	strcpy(propriedades[31].nome, "Avenida da Liberdade");
@@ -334,12 +288,6 @@ void inicializarTabuleiro()
 	//Casa 33 - CAIXA DA COMUNIDADE
 	strcpy(propriedades[33].nome, "CAIXA DA COMUNIDADE");
 	propriedades[33].preço = 0;
-	propriedades[33].hipoteca = 0;
-	propriedades[33].estadoHipoteca = false;
-	propriedades[33].numeroCasas = 0;
-	strcpy(propriedades[33].cor, "Sem Cor");
-	strcpy(propriedades[33].localizaçao, "Sem Localização");
-	strcpy(propriedades[33].proprietario, "Interdito");
 
 	//Casa 34
 	strcpy(propriedades[34].nome, "Avenida do Parque das Nacoes");
@@ -362,12 +310,6 @@ void inicializarTabuleiro()
 	//Casa 36 - SORTE
 	strcpy(propriedades[36].nome, "SORTE");
 	propriedades[36].preço = 0;
-	propriedades[36].hipoteca = 0;
-	propriedades[36].estadoHipoteca = false;
-	propriedades[36].numeroCasas = 0;
-	strcpy(propriedades[36].cor, "Sem Cor");
-	strcpy(propriedades[36].localizaçao, "Sem Localização");
-	strcpy(propriedades[36].proprietario, "Interdito");
 
 	//Casa 37
 	strcpy(propriedades[37].nome, "Rua das Amoreiras");
@@ -381,12 +323,6 @@ void inicializarTabuleiro()
 	//Casa 38 - IMPOSTO DE LUXO
 	strcpy(propriedades[38].nome, "IMPOSTO DE LUXO");
 	propriedades[38].preço = 0;
-	propriedades[38].hipoteca = 0;
-	propriedades[38].estadoHipoteca = false;
-	propriedades[38].numeroCasas = 0;
-	strcpy(propriedades[38].cor, "Sem Cor");
-	strcpy(propriedades[38].localizaçao, "Sem Localização");
-	strcpy(propriedades[38].proprietario, "Interdito");
 
 	//Casa 39
 	strcpy(propriedades[39].nome, "Rossio");
@@ -398,15 +334,13 @@ void inicializarTabuleiro()
 	strcpy(propriedades[39].proprietario, "Sem Proprietario");
 }
 
-
-
-
 //Estrutura de dados para o registo de Jogadores
 typedef struct registoJogadores
 {
 	char nome[50];
 	int saldo;
 	int posição;
+	bool leilao;
 } Jogador;
 
 Jogador jogadores[8];
@@ -443,106 +377,18 @@ int seleçãoJogadores()
 	getchar();
 	for (int i = 0; i < nJogadores; i++)
 	{
-		printf("Qual e o nome do jogador %d: ", i + 1);
-		/*scanf_s("%c", jogadores[i].nome)*/
+		printf("Qual e o nome do Jogador %d: ", i + 1);
 		gets_s(jogadores[i].nome, 50);
 		jogadores[i].saldo = 1500;
 		jogadores[i].posição = 0;
 	}
 	return (nJogadores);
 }
-typedef enum Carta_tipo_struct
-{
-	SORTE, COMUNIDADE, IMPOSTO
-}CartaTipo;
 
-
-typedef struct Carta_struct
-{
-	CartaTipo tipo;
-	char descrição[50];
-}Carta;
-
-Carta baralho[5];
-
-
-int quantidade = 0;
-//Inserir um novo aluno no topo da pilha
-int push(Carta NovaCarta)
-{
-	if (quantidade < 50)
-	{
-
-		baralho[quantidade] = NovaCarta;
-		quantidade++;
-		return(1);
-	}
-	else return(0);
-}
-
-
-// Remoção do elemento presente no topo da pilha
-int pop()
-{
-	if (quantidade > 0)
-	{
-		quantidade--; return(1);
-	}//apaga ultima celula do array
-	else return(0);
-}
-
-void CriarCartas()
-{
-	Carta NovaCarta;
-	NovaCarta.tipo = SORTE;
-	NovaCarta.descrição = "Avançe até a casa de partida e receba 200.\0";
-	push(NovaCarta);
-
-	NovaCarta.descrição = "Pague a 100 da conta do hospital\0";
-	push(NovaCarta);
-
-	NovaCarta.descrição = "erro da banca a seu favor, receba 100\0";
-	push(NovaCarta);
-
-	NovaCarta.descrição = "Pague os impostos 150\0";
-	push(NovaCarta);
-
-}
-int contador = 0;
-void TirarCarta(int saldo, typedef struct registoJogadores)
-{
-
-
-	if (pop())
-	{
-
-		contador++;
-	}
-
-	switch (contador)
-	{
-	case 0:
-		saldo = saldo - 150;
-		break;
-	case 1:
-		saldo = saldo + 100;
-		break;
-	case 2:
-		saldo = saldo - 100;
-		break;
-	case 3:
-		jogadores[i].posição = 0;
-		break;
-
-	default:
-		break;
-	}
-
-}
 //Cadeia
 bool cadeia()
 {
-	printf("Necessita de fazer um double para sair da cadeia.");
+	printf("Necessita de lancar um double para sair da cadeia.");
 	int dado1, dado2;
 
 	dado1 = (rand() % 6) + 1;
@@ -571,6 +417,7 @@ int lançamentoDados()
 		if (dado1 != dado2)
 		{
 			printf("\nAvance %d casas.\n", total);
+			fflush(stdin);
 			getchar();
 			return (total);
 		}
@@ -578,14 +425,16 @@ int lançamentoDados()
 		{
 			printf(" DOUBLE!\n\n");
 			contador++;
+			fflush(stdin);
 			getchar();
 		}
 	} while ((dado1 == dado2) && (contador < 3));
-
+	
 	//Vai para a cadeia casa saiam 3 doubles consecutivos
 	if (contador == 3)
 	{
 		printf("Obteve 3 DOUBLES consecutivos. Vai para a cadeia!\n");
+		fflush(stdin);
 		getchar();
 		cadeia();
 		return (0);
@@ -658,7 +507,7 @@ void estadoJogo(int nJog)
 					else
 					{
 						if (propriedades[i].numeroCasas == 5)
-						{
+						{	
 							printf("        CASAS        : 4\n");
 							printf("        HOTEL        : 1\n");
 						}
@@ -672,7 +521,7 @@ void estadoJogo(int nJog)
 							printf("        HIPOTECADA   : Sim\n");
 						}
 						else
-							printf("        HIPOTECADA   : Nao\n");
+							printf("        HIPOTECADA   : Nao\n");	
 					}
 				}
 			}
@@ -690,9 +539,9 @@ void estadoJogo(int nJog)
 
 
 //Comprar Propriedades
-void comprarPropriedade(int jogador)
+bool comprarPropriedade(int jog)
 {
-	int i = jogador;
+	int i = jog;
 
 	if (jogadores[i].saldo >= propriedades[jogadores[i].posição].preço)
 	{
@@ -701,26 +550,99 @@ void comprarPropriedade(int jogador)
 
 		printf("\nAquisicao completa!\n");
 		printf("%s foi adiquirida por %s.\n", propriedades[jogadores[i].posição].nome, jogadores[i].nome);
+		return (true);
 	}
 	else
 	{
 		printf("Nao possui saldo suficiente para a aquisicao!");
 		printf("Necessita de mais %d euros para completar a aquisicao.", propriedades[jogadores[i].posição].preço - jogadores[i].saldo);
+		return (false);
 	}
 }
 
 //Leiloar Propriedades
-void leiloarPropriedade(int jogador)
+void leiloarPropriedade(int numJog)
 {
-	int i = jogador;
+	int nJogadores = numJog;
+	int oferta = 10, novaOferta = 0;
+	int contador = 0;
+	bool leilao = true;
+	int opção = 0;
 
+	for (int i = 0; i < nJogadores; i++)
+	{
+		jogadores[i].leilao = true;
+	}
 
+	do
+	{
+		for (int i = 0; i < nJogadores; i++)
+		{
+			if (jogadores[i].leilao == true)
+			{
+				printf("\n== Jogador %d ==\n", i);
+			menuLeilao:
+				printf("O que deseja fazer?\n");
+				printf(" 1 - Licitar\n");
+				printf(" 2 - Desistir\n");
+				printf("\nInsira uma opcao: ");
+				fflush(stdin);
+				scanf_s("%d", opção);
+
+				switch (opção)
+				{
+				//Licitar
+				licitar:
+				case 1:
+					printf("Insira a sua oferta: ");
+					scanf_s("%d", novaOferta);
+					if (novaOferta <= oferta)
+					{
+						printf("Por favor insira um valor maior que %d.\n", oferta);
+						goto licitar;
+					}
+					else if (novaOferta > jogadores[i].saldo)
+					{
+						printf("Nao possui saldo suficiente para essa oferta.\n");
+						jogadores[i].leilao = false;
+						printf("O jogador %d esta fora do leilao");
+						break;
+					}
+					else if ((novaOferta - oferta) >= 10)
+					{
+						printf("Licitados %d para o Jogador %d");
+						break;
+					}
+					else
+					{
+						printf("Necessita de licitar valores maiores que M10");
+					}
+					break;
+
+				//Desistir
+				case 2:
+					printf("Desistiu do leilao.");
+					printf("O jogador %d esta fora do leilao");
+					jogadores[i].leilao = false;
+					contador++;
+					break;
+
+				//Opção Inválida
+				default:
+					printf("Insercao invalida");
+					goto menuLeilao;
+					break;
+				}
+			}
+		}
+		if (contador == nJogadores - 1) leilao = false;
+	} while (leilao == true);
 }
 
 //Construir Casas
-void construirCasa(int jogador)
+void construirCasa(int jog)
 {
-	int i = jogador;
+	int i = jog;
 	int corContador = 0;
 	int donoContador = 0;
 	int corCódigos[3];
@@ -755,14 +677,43 @@ void construirCasa(int jogador)
 	}
 }
 
+//Hipotecar Propriedades
+void hipotecarPropriedade(int jog)
+{
+	int i = jog;
+	int opção = 0;
+	printf("Deseja hipotecar - %s - por M%d ?\n", propriedades[i].nome, (propriedades[i].preço / 2));
+	printf(" 1 - Sim\n");
+	printf(" 0 - Nao\n");
+
+menuHipoteca:
+	switch (opção)
+	{
+	case 1:
+		break;
+	case 2:
+		break;
+	default:
+		printf("Erro! Opcao invalida.");
+		fflush(stdin);
+		getchar();
+		goto menuHipoteca;
+		break;
+	}
+}
+
 void main()
 {
 	inicializarTabuleiro();
 
 	//Início do Jogo
-	printf("= MONOPOLIO =\n");
-	printf("Bem-vindo ao Monopolio para a Consola do Windows.\n");
+	printf("|================================|===========|================================|\n");
+	printf("|========*=======*=======*=======| MONOPOLIO |========*=======*=======*=======|\n");
+	printf("|================================|===========|================================|\n");
+	printf("\nBem-vindo ao Monopolio para a Consola do Windows.\n");
 
+//Menu Inicial do jogo
+menuInicial:
 	switch (menuInicial())
 	{
 	case 1: goto novoJogo;
@@ -774,29 +725,32 @@ void main()
 		printf("Algoritmos e Estrutura de Dados, lecionada pelo professor Jose Carlos,\n");
 		printf("UC da Licenciatura de Engenharia em Desenvolvimento de Jogos Digitais.\n");
 		printf("\nAutores: Gil Ferraz (10660) e Teresa Loureiro (10661)\n");
+		fflush(stdin);
+		getchar();
+		goto menuInicial;
 		break;
 	}
 
-	//Iniciação de um Novo Jogo
-novoJogo:
+//Iniciação de um Novo Jogo
+novoJogo : 
 
 	//Seleção de Jogadores
-	printf("\n== Selecao de Jogadores ==\n");
+	printf("\n======================= Selecao de Jogadores =======================\n");
 	int nJogadores = seleçãoJogadores();
-
-	int turno = 10;
+	printf("\n====================================================================\n");
+	
+	int turno = 1;
 	//Execução de turnos
 	do
 	{
-		printf("\n== Turno %d ==\n", turno);
-
 		for (int i = 0; i < nJogadores; i++)
 		{
+			printf("\n================================= Turno %3d =================================\n", turno);
 			printf("\n========== Jogador %d - %s ==========\n", i + 1, jogadores[i].nome);
 			printf(" * SALDO   : %d euros\n", jogadores[i].saldo);
 			printf(" * POSICAO : Casa %d - %s\n", jogadores[i].posição, propriedades[jogadores[i].posição].nome);
 			printf("\n=======================================\n");
-
+			
 			//Lançamento de dados e cálculo da nova posição do jogador
 			printf("\nIra agora lancar os dados...");
 			getchar();
@@ -814,27 +768,39 @@ novoJogo:
 			printf("\n * NOVA POSICAO = Casa %d - %s\n", jogadores[i].posição, propriedades[jogadores[i].posição].nome);
 
 			//Detalhes da casa em que o jogador se encontra
-			printf("\n=============== %-30.30s (%-6.6s) ===============\n", propriedades[jogadores[i].posição].nome, propriedades[jogadores[i].posição].localizaçao);
-			printf(" * PROPRIETARIO : %s\n", propriedades[jogadores[i].posição].proprietario);
-			printf(" * PRECO        : %d euros\n", propriedades[jogadores[i].posição].preço);
-			printf(" * CASAS        : %d\n", propriedades[jogadores[i].posição].numeroCasas);
-			printf(" * HOTEL        : %d\n", propriedades[jogadores[i].posição].numeroCasas);
-			printf(" * HIPOTECA     : %d\n", propriedades[jogadores[i].posição].hipoteca);
-			printf("\n========== ALUGUER ==========\n");
-			printf(" * REGULAR   : euros\n");
-			printf(" * GRUPO-COR : euros\n");
-			printf(" * 1 CASA    : euros\n");
-			printf(" * 2 CASAS   : euros\n");
-			printf(" * 3 CASAS   : euros\n");
-			printf(" * 4 CASAS   : euros\n");
-			printf(" * HOTEL     : euros\n");
-			printf("\n=======================================================================\n");
+			printf("\n             PROPRIEDADE           \n");
+			printf(" __________________________________\n");
+			printf(" |                                |\n");
+			printf(" | %-30.30s |   * PROPRIETARIO : %s\n", propriedades[jogadores[i].posição].nome, propriedades[jogadores[i].posição].proprietario);
+			printf(" | %-30.30s |\n", propriedades[jogadores[i].posição].localizaçao);
+			printf(" |                                |   * CASAS        : %d\n", propriedades[jogadores[i].posição].numeroCasas);
+			printf(" |  COR %-11.11s   PRECO $%3d  |   * HOTEL        : %d\n", propriedades[jogadores[i].posição].cor, propriedades[jogadores[i].posição].preço, propriedades[jogadores[i].posição].numeroCasas);
+			printf(" | ------------------------------ |\n");
+			printf(" |             ALUGUER            |\n");
+			printf(" |   Terreno              $%3d    |\n", propriedades[jogadores[i].posição].preço);
+			printf(" |                                |\n");
+			printf(" |   Com 1 Casa           $%3d    |\n", propriedades[jogadores[i].posição].preço);
+			printf(" |                                |\n");
+			printf(" |   Com 2 Casas          $%3d    |\n", propriedades[jogadores[i].posição].preço);
+			printf(" |                                |\n");
+			printf(" |   Com 3 Casas          $%3d    |\n", propriedades[jogadores[i].posição].preço);
+			printf(" |                                |\n");
+			printf(" |   Com 4 Casas          $%3d    |\n", propriedades[jogadores[i].posição].preço);
+			printf(" |                                |\n");
+			printf(" |   Com HOTEL            $%3d    |\n", propriedades[jogadores[i].posição].preço);
+			printf(" | ------------------------------ |\n");
+			printf(" |     Preco de cada Casa $%3d    |\n", propriedades[jogadores[i].posição].preço);
+			printf(" |                                |\n");
+			printf(" |     Valor da Hipoteca $%3d     |\n", propriedades[jogadores[i].posição].hipoteca);
+			printf(" | ------------------------------ |\n");
+			printf(" |                                |\n");
+			printf(" __________________________________\n");
 
 			//Menu
 			int opção;
 			bool erro;
 
-		menu: printf("\nO que deseja fazer?\n");
+			menu : printf("\nO que deseja fazer?\n");
 			printf("1 - Estado do Jogo\n");
 			if (strcmp(propriedades[jogadores[i].posição].proprietario, "Sem Proprietario") == 0)
 			{
@@ -851,54 +817,56 @@ novoJogo:
 			printf("8 - Estado do Jogo\n");
 			printf("0 - Terminar turno\n");
 
-			do
+		menuJogador:
+			scanf_s("%d", &opção);
+			switch (opção)
 			{
-				erro = false;
-				scanf_s("%d", &opção);
-				switch (opção)
-				{
-					//1 - Estado do Jogo
-				case 1: estadoJogo(nJogadores);
-					break;
+			//1 - Estado do Jogo
+			case 1: estadoJogo(nJogadores);
+				break;
 
-					//2 - Comprar Propriedade
-				case 2:
-					if (strcmp(propriedades[jogadores[i].posição].proprietario, "Sem Proprietario") == 0)
-						comprarPropriedade(i);
-					else goto menu;
-					break;
+			//2 - Comprar Propriedade
+			case 2: 
+				if (strcmp(propriedades[jogadores[i].posição].proprietario, "Sem Proprietario") == 0)
+					comprarPropriedade(i);
+				else goto menu;
+				break;
 
-					//3 - Leiloar Propriedade
-				case 3: leiloarPropriedade(i);
-					break;
+			//3 - Leiloar Propriedade
+			case 3: leiloarPropriedade(i);
+				break;
 
-					//4 - Construir Casa
-				case 4: construirCasa(i);
-					break;
+			//4 - Construir Casa
+			case 4: construirCasa(i);
+				break;
 
-					//5 - Construir Hotel
-				case 5: printf("Nao implementado!");
-					break;
+			//5 - Construir Hotel
+			case 5: printf("Nao implementado!");
+				break;
 
-					//6 - Verder Propriedade
-				case 6: printf("Nao implementado!");
-					break;
+			//6 - Verder Propriedade
+			case 6: printf("Nao implementado!");
+				break;
 
-					//7 - Hipotecar Propriedade
-				case 7: printf("Nao implementado!");
-					break;
+			//7 - Hipotecar Propriedade
+			case 7: printf("Nao implementado!");
+				break;
 
-					//Opção Inválida
-				default:
-					printf("Erro! Introduza uma opcao valida: ");
-					erro = true;
-					break;
-				}
-			} while (erro == true);
+			//Opção Inválida
+			default: 
+				printf("Erro! Introduza uma opcao valida: ");
+				fflush(stdin);
+				goto menuJogador;
+				break;
+			}
 
 			printf("\n\n\n");
+			fflush(stdin);
+			getchar();
+			system("cls");
 		}
-	} while (turno != 100);
+		turno++;
+	} while (turno != 999);
 
 	system("pause");
 }
