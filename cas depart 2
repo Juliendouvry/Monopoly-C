@@ -1,0 +1,6 @@
+void caseDepart()
+{
+    printf("vous venez de recevoir 200 euros sur votre compte en banque \n");
+    printf("vous venez, en effet, de tomber sur la case depart\n");
+    joueur[i].solde+=200;
+}
